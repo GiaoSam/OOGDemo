@@ -7,10 +7,10 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
-        android:text="Green Fragment"
+        android:text="Orange Fragment"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="#ffffff"
-        android:background="#00ff15"/>
+        android:background="#ff7700"/>
 
 </LinearLayout>

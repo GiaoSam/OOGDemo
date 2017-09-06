@@ -1,16 +1,29 @@
 package com.example.fragmentdemo;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 
+import com.example.fragmentdemo.fragment.BlueFragment;
+import com.example.fragmentdemo.fragment.GreenFragment;
+import com.example.fragmentdemo.fragment.PinkFragment;
+import com.example.fragmentdemo.fragment.PurpleFragment;
+import com.example.fragmentdemo.fragment.RedFragment;
+import com.example.fragmentdemo.fragment.RedPagerFragment;
+import com.example.fragmentdemo.fragment.YellowFragment;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
-    private RedFragment red;
+
+    private RedPagerFragment redPager;
     private YellowFragment yellow;
     private GreenFragment green;
     private BlueFragment blue;
@@ -21,8 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton greenImgBtn;
     private ImageButton blueImgBtn;
     private ImageButton purpleImgBtn;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,72 +65,87 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setDefaultFragment() {
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        yellow = new YellowFragment();
-        // R.id.id_content_framelayout 即activity_main.xml中Fragments的布局位置的layout
-        transaction.add(R.id.id_content_framelayout, yellow);
-        transaction.commit();
-        transaction = fm.beginTransaction();
-        red = new RedFragment();
 
-        transaction.replace(R.id.id_content_framelayout, red);
+        // R.id.id_content_framelayout 即activity_main.xml中Fragments的布局位置的layout
+        redPager = new RedPagerFragment();
+
+        transaction.add(R.id.id_content_framelayout, redPager);
         transaction.commit();
+    }
+
+    // Hide all fragments
+    private void hideFragment(FragmentTransaction transaction){
+        if(redPager != null)
+            transaction.hide(redPager);
+        if(yellow != null)
+            transaction.hide(yellow);
+        if(blue != null)
+            transaction.hide(blue);
+        if(green != null)
+            transaction.hide(green);
+        if(purple != null)
+            transaction.hide(purple);
     }
 
     @Override
     public void onClick(View view) {
 
         // 开启Fragment
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
 
 //        transaction.add()
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.id_red_button:
-                if (red == null)
-                {
-                    red = new RedFragment();
+                if (redPager == null) {
+                    redPager = new RedPagerFragment();
+                    transaction.add(R.id.id_content_framelayout, redPager);
                 }
                 // 使用当前Fragment的布局替代id_content的控件
-                transaction.replace(R.id.id_content_framelayout, red);
+                hideFragment(transaction);
+                transaction.show(redPager);
                 break;
 
             case R.id.id_yellow_button:
-                if (yellow == null)
-                {
+                if (yellow == null) {
                     yellow = new YellowFragment();
+                    transaction.add(R.id.id_content_framelayout, yellow);
                 }
-                // 使用当前Fragment的布局替代id_content的控件
-                transaction.replace(R.id.id_content_framelayout, yellow);
+
+                hideFragment(transaction);
+                transaction.show(yellow);
                 break;
 
             case R.id.id_green_button:
-                if (green == null)
-                {
+                if (green == null) {
                     green = new GreenFragment();
+                    transaction.add(R.id.id_content_framelayout, green);
                 }
-                // 使用当前Fragment的布局替代id_content的控件
-                transaction.replace(R.id.id_content_framelayout, green);
+
+                hideFragment(transaction);
+                transaction.show(green);
                 break;
 
             case R.id.id_blue_button:
-                if (blue == null)
-                {
-                    blue= new BlueFragment();
+                if (blue == null) {
+                    blue = new BlueFragment();
+                    transaction.add(R.id.id_content_framelayout, blue);
                 }
-                // 使用当前Fragment的布局替代id_content的控件
-                transaction.replace(R.id.id_content_framelayout, blue);
+
+                hideFragment(transaction);
+                transaction.show(blue);
                 break;
 
             case R.id.id_purple_button:
-                if (purple == null)
-                {
+                if (purple == null) {
                     purple = new PurpleFragment();
+                    transaction.add(R.id.id_content_framelayout, purple);
                 }
-                // 使用当前Fragment的布局替代id_content的控件
-                transaction.replace(R.id.id_content_framelayout, purple);
+
+                hideFragment(transaction);
+                transaction.show(purple);
                 break;
         }
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/viewPagerTabs"
+        app:pstsShouldExpand="true"
+        app:pstsTextAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        app:pstsDividerColor="#9b9999"
+        app:pstsIndicatorColor="#ff2000"
+        app:pstsTabPaddingLeftRight="14dp"
+        />
+    <!--app:pstsUnderlineColor="@color/blue"-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- If you want an "indicator" that displays the pages available at the top,
+             you need to include a nested indicator view called a PagerTabStrip:-->
+
+        <!--<android.support.v4.view.PagerTabStrip-->
+            <!--android:id="@+id/pagerHeader"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="top"-->
+            <!--android:paddingBottom="3dp"-->
+            <!--android:paddingTop="3dp">-->
+
+        <!--</android.support.v4.view.PagerTabStrip>-->
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

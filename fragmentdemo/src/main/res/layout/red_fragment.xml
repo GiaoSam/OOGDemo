@@ -11,6 +11,7 @@
         android:text="Red Fragment"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:textColor="#ff0000"/>
+        android:textColor="#ffffff"
+        android:background="#ff0000"/>
 
 </LinearLayout>

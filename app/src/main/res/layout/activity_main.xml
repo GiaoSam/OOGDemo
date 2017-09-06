@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.johnson.joog.MainActivity">
+
+
+   <RelativeLayout
+       android:layout_width="344dp"
+       android:layout_height="495dp"
+       tools:layout_editor_absoluteY="8dp"
+       tools:layout_editor_absoluteX="8dp">
+       <Button
+           android:id="@+id/loginButton"
+           android:layout_width="208dp"
+           android:layout_height="41dp"
+           android:text="SIGN IN"
+           android:layout_centerHorizontal="true"
+           />
+
+       <Button
+           android:id="@+id/registerButten"
+           android:layout_width="208dp"
+           android:layout_height="41dp"
+           android:text="Register"
+           android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true"/>
+
+       <TextView
+           android:id="@+id/textView"
+           android:layout_width="210dp"
+           android:layout_height="27dp"
+           android:text="TextView"
+           tools:layout_editor_absoluteX="87dp"
+           tools:layout_editor_absoluteY="115dp"
+           android:layout_marginTop="46dp"
+           android:layout_below="@+id/loginButton"
+           android:layout_alignRight="@+id/loginButton"
+           android:layout_alignEnd="@+id/loginButton" />
+
+       <EditText
+           android:id="@+id/editText2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:ems="10"
+           android:inputType="textPersonName"
+           tools:layout_editor_absoluteX="85dp"
+           tools:layout_editor_absoluteY="187dp"
+           android:layout_above="@+id/button"
+           android:layout_alignLeft="@+id/progressBar"
+           android:layout_alignStart="@+id/progressBar"
+           android:layout_marginBottom="42dp" />
+
+       <ProgressBar
+           android:id="@+id/progressBar"
+           style="?android:attr/progressBarStyleHorizontal"
+           android:layout_width="210dp"
+           android:layout_height="23dp"
+           tools:layout_editor_absoluteX="87dp"
+           tools:layout_editor_absoluteY="284dp"
+           android:layout_below="@+id/editText2"
+           android:layout_alignLeft="@+id/loginButton"
+           android:layout_alignStart="@+id/loginButton"
+           android:layout_marginTop="92dp" />
+
+       <Button
+           android:id="@+id/button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Button"
+           tools:layout_editor_absoluteX="148dp"
+           tools:layout_editor_absoluteY="338dp"
+           android:layout_marginBottom="111dp"
+           android:layout_above="@+id/registerButten"
+           android:layout_centerHorizontal="true" />
+   </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
